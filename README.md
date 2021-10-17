@@ -1,3 +1,3 @@
 # 🕵️ Anon Writes
 
-✍️ An global anonym articles platform.
+✍️ A global anonym articles platform.
