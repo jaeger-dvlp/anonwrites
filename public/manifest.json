@@ -1,0 +1,8 @@
+{
+  "short_name": "Anon Write",
+  "name": "Global Anonymous Writes",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
