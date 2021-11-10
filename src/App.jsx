@@ -1,14 +1,15 @@
 import React from 'react';
-
+// eslint-disable-next-line import/named
+import { ContextProvider } from './Context';
 import Header from './Components/Header';
-import Write from './Components/Write';
+import Homepage from './Components/Homepage';
 
 function App() {
   return (
-    <div>
+    <ContextProvider>
       <Header />
-      <Write />
-    </div>
+      <Homepage />
+    </ContextProvider>
   );
 }
 
