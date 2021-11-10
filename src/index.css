@@ -7,13 +7,11 @@ body,
 html {
   background-color: #121212;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 .main-bg-grad {
   background: linear-gradient(to bottom, #121212, transparent);
 }
