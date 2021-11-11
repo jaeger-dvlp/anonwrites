@@ -10,9 +10,9 @@ export default function Write(props) {
       <div
         className="w-full transform flex justify-center p-0 m-0"
         data-aos="fade-down"
-        data-aos-delay="100"
+        data-aos-delay="0"
         data-aos-easing="ease-in-out-back"
-        data-aos-duration="700"
+        data-aos-duration="450"
       >
         <div className="writes shadow-xl transform hover:scale-105 border border-gray-900 transition-all duration-300 m-2 my-10 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
           <div className="write-header text-gray-300 w-full text-lg border-b transition-all duration-300 border-gray-900 p-5">
@@ -22,20 +22,15 @@ export default function Write(props) {
             {content}
           </div>
           <div className="write-footer text-gray-500 flex flex-wrap transition-all duration-300 w-full border-t border-gray-900 p-0">
-            <div className="write-categories  flex flex-wrap w-full p-3">
+            <div className="write-categories  flex flex-wrap w-full p-0">
               {categories.map((category) => (
-                <div className="p-2">
+                <div
+                  className="p-5 pb-6 pr-0"
+                  key={`${category}CategoryKeyOf${author}_`}
+                >
                   <Link
                     to={`/category/${category}`}
-                    className={`py-2 px-5 text-sm rounded-md bg-opacity-20 hover:bg-opacity-30 transition-all duration-150 ${
-                      category === 'world'
-                        ? 'text-blue-500 bg-blue-500'
-                        : category === 'war'
-                        ? 'text-green-500 bg-green-500'
-                        : category === 'politic'
-                        ? 'text-red-500 bg-red-500'
-                        : ''
-                    }`}
+                    className="py-2 px-5 text-sm rounded-md bg-opacity-20 hover:text-gray-300 hover:bg-opacity-30 transition-all duration-150 text-gray-400 bg-gray-400"
                   >
                     {category}
                   </Link>
