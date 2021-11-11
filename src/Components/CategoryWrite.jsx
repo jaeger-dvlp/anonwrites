@@ -1,18 +1,73 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import faker from 'faker';
 import { Link } from 'react-router-dom';
+import LoadingWrite from './LoadingWrite';
+import Write from './Write';
 
 export default function CategoryWrite({ match }) {
-  const categoryName = match.params.name;
   const [catStatus, setCatStatus] = useState(null);
+  const [writes, setWrites] = useState(null);
+  useEffect(() => {
+    const categoryName = match.params.name;
+    const sendWritesByCategory = async () => {
+      await fetch(
+        `http://172.16.17.88:3050/getWrites/category/${categoryName}`,
+        {
+          method: 'GET',
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setWrites(
+            data.map((elm) => (
+              <Write
+                key={faker.datatype.uuid()}
+                author={
+                  faker.animal.type() +
+                  faker.name.firstName() +
+                  faker.datatype.number(120)
+                }
+                content={elm.writeContent}
+                time={elm.writeTime}
+                categories={elm.writeCategories}
+              />
+            ))
+          );
+          setCatStatus(false);
+        })
+        .catch((err) =>
+          setTimeout(() => {
+            sendWritesByCategory();
+          }, 500)
+        );
+    };
+
+    const controlCategory = async () => {
+      await fetch('http://172.16.17.88:3050/getCategories', {
+        method: 'GET',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.includes(categoryName) !== true) {
+            setCatStatus(true);
+          } else {
+            sendWritesByCategory();
+          }
+        });
+    };
+
+    controlCategory();
+  }, []);
 
   const notFound = (
     <div
       data-aos="fade-down"
       data-aos-delay="200"
       data-aos-duration="700"
-      className="w-full flex flex-wrap justify-center content-center font-pop text-gray-300 p-3 m-0"
+      className="w-full flex text-center flex-wrap justify-center content-center font-pop text-gray-300 p-3 m-0"
     >
       <div className="write m-2 xl:w-1/2 lg:w-1/2 md:w-1/2 w-full flex flex-wrap overflow-hidden justify-center content-start rounded-xl bg-gray-800 p-0">
         <div className="write-content w-full p-0">
@@ -37,19 +92,15 @@ export default function CategoryWrite({ match }) {
     </div>
   );
 
-  fetch('http://172.16.17.88:3050/getCategories', {
-    method: 'GET',
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.includes(categoryName) !== true) {
-        setCatStatus(true);
-      }
-    });
-
   return (
-    <div className="py-32 text-white text-center w-full">
-      {catStatus === true ? notFound : categoryName}
+    <div className="py-32 px-5 container mx-auto flex flex-wrap">
+      {catStatus === true ? (
+        notFound
+      ) : catStatus === false ? (
+        [writes]
+      ) : (
+        <LoadingWrite />
+      )}
     </div>
   );
 }
