@@ -1,17 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/state-in-constructor */
 import React, { createContext, useEffect, useState } from 'react';
 
 const Context = createContext();
-const data = {
-  author: 'jaeger-dvlp',
-  content: 'Lorem ipsum dolor sit amet',
-  date: '01/01/2021',
-  time: '00:00',
-};
-
-// eslint-disable-next-line import/prefer-default-export
 export const ContextProvider = ({ children }) => {
   const [writeData, setWriteData] = useState(null);
 
