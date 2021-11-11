@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AOS from 'aos';
@@ -17,7 +18,7 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/" exact component={Homepage} />
+          <Route exact path="/" component={Homepage} />
           <Route path="/category/:name" component={CategoryWrite} />
           <Route component={NotFound} />
         </Switch>
