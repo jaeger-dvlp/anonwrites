@@ -13,22 +13,32 @@ const data = {
 
 // eslint-disable-next-line import/prefer-default-export
 export const ContextProvider = ({ children }) => {
-  const [writeData, setWWriteData] = useState(null);
+  const [writeData, setWriteData] = useState(null);
 
-  const updateWrites = () => {
-    fetch('http://localhost:3050/getWrites')
-      .then((res) => res.json)
-      .then((resData) => console.log(resData));
+  const updateWrites = async () => {
+    await fetch('http://172.16.17.88:3050/getWrites')
+      .then((res) => res.json())
+      .then((resData) => setWriteData(resData))
+      .catch((err) => {
+        setTimeout(() => {
+          updateWrites();
+        }, 500);
+      });
   };
 
-  useEffect(() => {
-    fetch('http://localhost:3050/getWrites', {
+  useEffect(async () => {
+    await fetch('http://172.16.17.88:3050/getWrites', {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((resData) => {
-        setWWriteData(resData);
-      });
+        setWriteData(resData);
+      })
+      .catch((err) =>
+        setTimeout(() => {
+          updateWrites();
+        }, 500)
+      );
   }, []);
 
   const value = { writeData, updateWrites };
