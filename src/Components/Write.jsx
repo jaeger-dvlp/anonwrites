@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Write(props) {
   const { author, content, time, categories } = props;
@@ -24,8 +25,8 @@ export default function Write(props) {
             <div className="write-categories  flex flex-wrap w-full p-3">
               {categories.map((category) => (
                 <div className="p-2">
-                  <button
-                    type="button"
+                  <Link
+                    to={`/category/${category}`}
                     className={`py-2 px-5 text-sm rounded-md bg-opacity-20 hover:bg-opacity-30 transition-all duration-150 ${
                       category === 'world'
                         ? 'text-blue-500 bg-blue-500'
@@ -37,7 +38,7 @@ export default function Write(props) {
                     }`}
                   >
                     {category}
-                  </button>
+                  </Link>
                 </div>
               ))}
             </div>
