@@ -7,9 +7,15 @@ export default function Homepage() {
   const { writeData } = useContext(Context);
 
   useEffect(() => {}, []);
+
   const writeElms = writeData
     ? writeData.map((elm) => (
-        <Write author={elm.author} content={elm.content} time={elm.time} />
+        <Write
+          key={`writeId${elm.writeId}_from_${elm.writeAuthor}`}
+          author={elm.writeAuthor}
+          content={elm.writeContent}
+          time={elm.writeTime}
+        />
       ))
     : '';
 
