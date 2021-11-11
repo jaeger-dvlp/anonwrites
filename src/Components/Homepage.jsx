@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import faker from 'faker';
+
 import Write from './Write';
 import Context from '../Context';
 import LoadingWrite from './LoadingWrite';
@@ -11,10 +13,15 @@ export default function Homepage() {
   const writeElms = writeData
     ? writeData.map((elm) => (
         <Write
-          key={`writeId${elm.writeId}_from_${elm.writeAuthor}`}
-          author={elm.writeAuthor}
+          key={faker.datatype.uuid()}
+          author={
+            faker.animal.type() +
+            faker.name.firstName() +
+            faker.datatype.number(120)
+          }
           content={elm.writeContent}
           time={elm.writeTime}
+          categories={elm.writeCategories}
         />
       ))
     : '';
