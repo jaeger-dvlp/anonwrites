@@ -2,8 +2,9 @@
 
 ✍️ A global anonym articles platform.
 
-```
 ## To Do
+
+```
 
 [ ✔️ ] Create Components.
 [ ✔️ ] Get Writes from server.
