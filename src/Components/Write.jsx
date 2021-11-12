@@ -9,9 +9,8 @@ export default function Write(props) {
     <div className="w-full font-pop transition-all duration-300 justify-center flex flex-wrap">
       <div
         className="w-full transform flex justify-center p-0 m-0"
-        data-aos="fade-down"
-        data-aos-delay="0"
-        data-aos-easing="ease-in-out-back"
+        data-aos="fade-in"
+        data-aos-delay="100"
         data-aos-duration="450"
       >
         <div className="writes shadow-xl transform hover:scale-105 border border-gray-900 transition-all duration-300 m-2 my-10 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
