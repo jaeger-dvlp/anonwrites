@@ -11,6 +11,6 @@
 [ ✔️ ] Filter categories.
 [ ⏳ ] Create new write func.
 [ ⏳ ] Create landing section.
-[ ⏳ ] ...
+[ ⏳ ] Create 404 page.
 [ ⏳ ] ...
 ```
