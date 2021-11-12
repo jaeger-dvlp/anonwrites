@@ -11,6 +11,21 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
+button:disabled {
+  background-color: rgb(82, 82, 82);
+}
+button:disabled:hover {
+  background-color: rgb(82, 82, 82) !important;
+}
+
+::selection,
+::-moz-selection {
+  background-color: #293d57;
+  color: white;
+  transition: all 0.2s;
+}
+
 .main-bg-grad {
   background: linear-gradient(to bottom, #111827, transparent);
 }
