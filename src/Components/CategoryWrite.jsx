@@ -102,7 +102,15 @@ export default function CategoryWrite({ history }) {
       {catStatus === true ? (
         notFound
       ) : catStatus === false ? (
-        [writes]
+        <>
+          <Link
+            to="/"
+            className="xl:w-1/2 lg:w-1/2 md:w-1/2 hover:text-gray-300 w-full mx-auto p-2 text-lg pb-0 text-gray-400 text-left"
+          >
+            Back
+          </Link>
+          {[writes]}
+        </>
       ) : (
         <LoadingWrite />
       )}
