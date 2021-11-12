@@ -14,6 +14,7 @@ import AddWriteButton from './Components/AddWriteButton';
 import CategoryWrite from './Components/CategoryWrite';
 import NewWrite from './Components/NewWrite';
 import NotFound from './Components/NotFound';
+import Popup from './Components/Popup';
 
 const history = createBrowserHistory();
 
@@ -39,6 +40,7 @@ function App() {
         </Switch>
         <AddWriteButton />
       </Router>
+      <Popup />
     </ContextProvider>
   );
 }
