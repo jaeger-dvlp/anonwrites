@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 import LoadingWrite from './LoadingWrite';
 import Write from './Write';
 
-export default function CategoryWrite({ match }) {
+export default function CategoryWrite({ history }) {
   const [catStatus, setCatStatus] = useState(null);
   const [writes, setWrites] = useState(null);
   useEffect(() => {
-    const categoryName = match.params.name;
+    const categoryName = history.match.params.name;
     const sendWritesByCategory = async () => {
       await fetch(
         `http://172.16.17.88:3050/getWrites/category/${categoryName}`,
@@ -93,7 +93,12 @@ export default function CategoryWrite({ match }) {
   );
 
   return (
-    <div className="py-32 px-5 container mx-auto flex flex-wrap">
+    <div
+      data-aos="fade-in"
+      data-aos-duration="1000"
+      data-aos-delay="300"
+      className="py-32 px-5 container mx-auto flex flex-wrap"
+    >
       {catStatus === true ? (
         notFound
       ) : catStatus === false ? (
