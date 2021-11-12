@@ -13,7 +13,7 @@ export default function Write(props) {
         data-aos-delay="100"
         data-aos-duration="450"
       >
-        <div className="writes shadow-xl transform hover:scale-105 border border-gray-900 transition-all duration-300 m-2 my-10 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
+        <div className="writes shadow-xl transform hover:scale-105 border border-gray-900 transition-all duration-300 m-2 mt-3 mb-16 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
           <div className="write-header text-gray-300 w-full text-lg border-b transition-all duration-300 border-gray-900 p-5">
             {author}
           </div>
