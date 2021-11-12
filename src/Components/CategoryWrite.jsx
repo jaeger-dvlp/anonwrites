@@ -103,12 +103,16 @@ export default function CategoryWrite({ history }) {
         notFound
       ) : catStatus === false ? (
         <>
-          <Link
-            to="/"
-            className="xl:w-1/2 lg:w-1/2 md:w-1/2 hover:text-gray-300 w-full mx-auto p-2 text-lg pb-0 text-gray-400 text-left"
-          >
-            Back
-          </Link>
+          <div className="mx-auto p-0 m-0 xl:w-1/2 lg:w-1/2 md:w-1/2 w-full flex flex-wrap justify-start content-end">
+            <Link
+              data-aos="fade-in"
+              data-aos-delay="100"
+              to="/"
+              className="hover:text-gray-300 w-full p-2 text-lg pb-0 text-gray-400"
+            >
+              Back
+            </Link>
+          </div>
           {[writes]}
         </>
       ) : (
