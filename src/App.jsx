@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
