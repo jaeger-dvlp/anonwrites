@@ -4,13 +4,10 @@
 
 ## To Do
 
-```
-
-[ ✔️ ] Create Components.
-[ ✔️ ] Get Writes from server.
-[ ✔️ ] Filter categories.
-[ ⏳ ] Create new write func.
-[ ⏳ ] Create landing section.
-[ ⏳ ] Create 404 page.
-[ ⏳ ] ...
-```
+- [x] Create Components.
+- [x] Get Writes from server.
+- [x] Filter categories.
+- [ ] Create new write func.
+- [ ] Create landing section.
+- [ ] Create 404 page.
+- [ ] ...
