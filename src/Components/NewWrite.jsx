@@ -1,6 +1,4 @@
-/* eslint-disable no-var */
 /* eslint-disable no-return-assign */
-/* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 
