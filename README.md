@@ -2,6 +2,7 @@
 
 ✍️ A global anonym articles platform.
 
+```
 > ## To Do
 >
 > - [✔️] Create Components.
@@ -11,3 +12,4 @@
 > - [⏳] Create landing section.
 > - [⏳] ...
 > - [⏳] ...
+```
