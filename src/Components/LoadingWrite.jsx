@@ -15,7 +15,7 @@ export default function LoadingWrite() {
         <div className="write-content w-full p-5">
           <div className="w-full h-32 bg-gray-700 rounded-lg p-5 animate-pulse " />
         </div>
-        <div className="write-footer text-right flex justify-end w-full border-t border-gray-900 p-5">
+        <div className="write-footer text-right flex justify-start w-full border-t border-gray-900 p-5">
           <div className="w-1/4 h-full bg-gray-700 rounded-lg p-5 animate-pulse " />
         </div>
       </div>
