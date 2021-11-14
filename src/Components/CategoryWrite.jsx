@@ -13,12 +13,9 @@ export default function CategoryWrite({ history }) {
   useEffect(() => {
     const categoryName = history.match.params.name;
     const sendWritesByCategory = async () => {
-      await fetch(
-        `http://172.16.17.88:3050/getWrites/category/${categoryName}`,
-        {
-          method: 'GET',
-        }
-      )
+      await fetch(`http://localhost:3050/getWrites/category/${categoryName}`, {
+        method: 'GET',
+      })
         .then((res) => res.json())
         .then((data) => {
           setWrites(
@@ -46,7 +43,7 @@ export default function CategoryWrite({ history }) {
     };
 
     const controlCategory = async () => {
-      await fetch('http://172.16.17.88:3050/getCategories', {
+      await fetch('http://localhost:3050/getCategories', {
         method: 'GET',
       })
         .then((res) => res.json())
