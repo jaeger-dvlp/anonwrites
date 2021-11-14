@@ -1,13 +1,15 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-unused-expressions */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Context from '../Context';
 
 export default function NewWrite() {
+  const { activatePopup } = useContext(Context);
   const [categories, setCategories] = useState(null);
 
   const [checkBoxes, setCheckBoxes] = useState(null);
   useEffect(() => {
-    fetch('http://172.16.17.88:3050/getCategories', {
+    fetch('http://localhost:3050/getCategories', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -43,9 +45,9 @@ export default function NewWrite() {
     );
 
     if (checkBoxCounter > 0) {
-      console.log(true);
+      activatePopup(['ok', 'Your write is sent sucessfully.']);
     } else {
-      console.log(false);
+      activatePopup(['error', 'You have to select a category at least.']);
     }
   };
 
@@ -73,7 +75,7 @@ export default function NewWrite() {
           data-aos-delay="100"
           data-aos-duration="450"
         >
-          <div className="writes shadow-xl border border-gray-900 transition-all duration-300 m-2 mt-3 mb-16 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
+          <div className="writes shadow-xl border border-gray-900 transition-all duration-300  mt-3 mb-16 xl:w-1/2 lg:w-1/2 flex flex-wrap overflow-hidden justify-center content-start rounded-xl md:w-1/2 w-full bg-gray-800 p-0">
             <div className="write-header text-gray-300 w-full text-lg border-b transition-all duration-300 border-gray-900 p-5">
               <div className="w-full pb-2  text-sm text-gray-500">
                 Content of your write.
@@ -98,11 +100,22 @@ export default function NewWrite() {
                 {checkBoxes}
                 <div className="w-full flex flex-wrap justify-start content-center pt-5">
                   <button
-                    className="submit-btn text-sm px-5 py-2 bg-blue-900 hover:bg-blue-700  rounded-md"
+                    className="submit-btn text-sm px-5 py-2 bg-blue-900 hover:bg-blue-700 rounded-md flex flex-wrap content-center justify-center fill-current"
                     type="submit"
                     disabled
                   >
-                    Submit
+                    <span>Send</span>
+                    <span className="ml-2 self-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        className="self-center w-4 h-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z" />
+                      </svg>
+                    </span>
                   </button>
                 </div>
               </form>
