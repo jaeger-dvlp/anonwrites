@@ -67,13 +67,17 @@ export default function Popup() {
               {popUp.content}
             </div>
             <div className="w-full flex flex-wrap justify-center content-center p-5">
-              <button
-                onClick={hidePopup}
-                className="px-5 py-2 hover:bg-opacity-60 rounded-lg bg-gray-500 text-gray-300 bg-opacity-30"
-                type="button"
-              >
-                Okay.
-              </button>
+              {popUp.button === 'okay' ? (
+                <button
+                  onClick={hidePopup}
+                  className="px-5 py-2 hover:bg-opacity-60 rounded-lg bg-gray-500 text-gray-300 bg-opacity-30"
+                  type="button"
+                >
+                  Okay.
+                </button>
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>
