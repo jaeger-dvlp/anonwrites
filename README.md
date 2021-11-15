@@ -7,7 +7,7 @@
 - [x] Create Components.
 - [x] Get Writes from server.
 - [x] Filter categories.
-- [ ] Create new write func.
+- [x] Create new write func.
 - [ ] Create landing section.
 - [ ] Create 404 page.
 - [ ] ...
