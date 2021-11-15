@@ -15,9 +15,12 @@ export default function CategoryWrite({ history }) {
   useEffect(() => {
     const categoryName = history.match.params.name;
     const sendWritesByCategory = async () => {
-      await fetch(`http://localhost:3050/getWrites/category/${categoryName}`, {
-        method: 'GET',
-      })
+      await fetch(
+        `https://anonwrites-api.herokuapp.com/api/getWrites/category/${categoryName}`,
+        {
+          method: 'GET',
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setWrites(
@@ -46,7 +49,7 @@ export default function CategoryWrite({ history }) {
     };
 
     const controlCategory = async () => {
-      await fetch('http://localhost:3050/getCategories', {
+      await fetch('https://anonwrites-api.herokuapp.com/api/getCategories', {
         method: 'GET',
       })
         .then((res) => res.json())

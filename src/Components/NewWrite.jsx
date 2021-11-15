@@ -10,7 +10,7 @@ export default function NewWrite() {
   const [writeText, setWriteText] = useState('');
   const [checkBoxes, setCheckBoxes] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:3050/getCategories', {
+    fetch('https://anonwrites-api.herokuapp.com/api/getCategories', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -49,7 +49,7 @@ export default function NewWrite() {
         : ''
     );
 
-    fetch('http://localhost:3050/newWrite', {
+    fetch('https://anonwrites-api.herokuapp.com/api/newWrite', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ export default function NewWrite() {
       .then((res) => res.json())
       .then((data) => {
         data.message === 'success'
-          ? activatePopup(['ok', 'Your write sent sucessfully.', 'okay'])
+          ? activatePopup(['ok', 'Write sent sucessfully.', 'okay'])
           : activatePopup(['error', 'An error occurred.', 'okay']);
       });
   };

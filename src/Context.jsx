@@ -31,7 +31,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const updateWrites = async () => {
-    await fetch('http://localhost:3050/getWrites')
+    await fetch('https://anonwrites-api.herokuapp.com/api/getWrites')
       .then((res) => res.json())
       .then((resData) => setWriteData(resData))
       .catch((err) => {
@@ -43,7 +43,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   useEffect(async () => {
-    await fetch('http://localhost:3050/getWrites', {
+    await fetch('https://anonwrites-api.herokuapp.com/api/getWrites', {
       method: 'GET',
     })
       .then((res) => res.json())

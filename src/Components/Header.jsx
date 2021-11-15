@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -9,10 +8,10 @@ export default function Header() {
       data-aos-delay="300"
       className="header z-50 text-white main-bg-grad py-5 fixed font-pop font-medium flex w-full flex-wrap text-center justify-center text-2xl"
     >
-      <Link to="/">
+      <a href="/">
         AnonWrites
         <span className="header-anim">_</span>
-      </Link>
+      </a>
     </div>
   );
 }
