@@ -1,3 +1,4 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState, useContext } from 'react';
@@ -14,9 +15,9 @@ export default function NewWrite() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setCategories(data);
+        setCategories(data[0].categories);
         setCheckBoxes(
-          data.map((category) => (
+          data[0].categories.map((category) => (
             <label
               key={`checkOf${category}`}
               htmlFor={`check${category}`}
@@ -97,7 +98,7 @@ export default function NewWrite() {
                 Choose category of your write.
               </div>
               <form onSubmit={checkForm} className="w-full flex flex-wrap">
-                {checkBoxes}
+                {checkBoxes ? checkBoxes : 'Loading..'}
                 <div className="w-full flex flex-wrap justify-start content-center pt-5">
                   <button
                     className="submit-btn text-sm px-5 py-2 bg-blue-900 hover:bg-blue-700 rounded-md flex flex-wrap content-center justify-center fill-current"
