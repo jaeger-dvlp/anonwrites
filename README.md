@@ -8,6 +8,7 @@
 - [x] Get Writes from server.
 - [x] Filter categories.
 - [x] Create new write func.
+- [x] API deployment to Heroku.
 - [ ] Create landing section.
 - [ ] Create 404 page.
 - [ ] ...
