@@ -1,13 +1,15 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import faker from 'faker';
 import { Link } from 'react-router-dom';
+import Context from '../Context';
 import LoadingWrite from './LoadingWrite';
 import Write from './Write';
 
 export default function CategoryWrite({ history }) {
+  const { activatePopup } = useContext(Context);
   const [catStatus, setCatStatus] = useState(null);
   const [writes, setWrites] = useState(null);
   useEffect(() => {
@@ -35,11 +37,12 @@ export default function CategoryWrite({ history }) {
           );
           setCatStatus(false);
         })
-        .catch((err) =>
+        .catch((err) => {
+          activatePopup(['error', 'An error occurred.', 'okay']);
           setTimeout(() => {
             sendWritesByCategory();
-          }, 500)
-        );
+          }, 500);
+        });
     };
 
     const controlCategory = async () => {
@@ -53,6 +56,9 @@ export default function CategoryWrite({ history }) {
           } else {
             sendWritesByCategory();
           }
+        })
+        .catch(() => {
+          activatePopup(['error', 'An error occurred.', 'okay']);
         });
     };
 
