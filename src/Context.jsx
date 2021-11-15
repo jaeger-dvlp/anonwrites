@@ -9,23 +9,15 @@ export const ContextProvider = ({ children }) => {
     status: '',
     content: '',
     visibility: 'invisible opacity-0',
+    button: null,
   });
-  const updateWrites = async () => {
-    await fetch('http://localhost:3050/getWrites')
-      .then((res) => res.json())
-      .then((resData) => setWriteData(resData))
-      .catch((err) => {
-        setTimeout(() => {
-          updateWrites();
-        }, 500);
-      });
-  };
 
   const hidePopup = () => {
     setPopup({
       status: popUp.status,
       content: popUp.content,
       visibility: 'invisible opacity-0',
+      button: popUp.button,
     });
   };
 
@@ -34,7 +26,20 @@ export const ContextProvider = ({ children }) => {
       status: data[0],
       content: data[1],
       visibility: 'visible opacity-1',
+      button: data[2],
     });
+  };
+
+  const updateWrites = async () => {
+    await fetch('http://localhost:3050/getWrites')
+      .then((res) => res.json())
+      .then((resData) => setWriteData(resData))
+      .catch((err) => {
+        activatePopup(['error', 'An error occurred.', 'okay']);
+        setTimeout(() => {
+          updateWrites();
+        }, 500);
+      });
   };
 
   useEffect(async () => {
@@ -45,11 +50,12 @@ export const ContextProvider = ({ children }) => {
       .then((resData) => {
         setWriteData(resData);
       })
-      .catch((err) =>
+      .catch((err) => {
+        activatePopup(['error', 'An error occurred.', 'okay']);
         setTimeout(() => {
           updateWrites();
-        }, 500)
-      );
+        }, 500);
+      });
   }, []);
 
   const value = { writeData, updateWrites, popUp, hidePopup, activatePopup };
