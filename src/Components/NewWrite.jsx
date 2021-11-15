@@ -7,7 +7,7 @@ import Context from '../Context';
 export default function NewWrite() {
   const { activatePopup } = useContext(Context);
   const [categories, setCategories] = useState(null);
-
+  const [writeText, setWriteText] = useState('');
   const [checkBoxes, setCheckBoxes] = useState(null);
   useEffect(() => {
     fetch('http://localhost:3050/getCategories', {
@@ -21,7 +21,7 @@ export default function NewWrite() {
             <label
               key={`checkOf${category}`}
               htmlFor={`check${category}`}
-              className="cursor-pointer pr-5 flex select-none flex-wrap text-sm text-gray-400 hover:text-gray-300 justify-start content-center"
+              className="cursor-pointer pr-5 pb-5 flex select-none flex-wrap text-sm text-gray-400 hover:text-gray-300 justify-start content-center"
             >
               <input
                 id={`check${category}`}
@@ -32,23 +32,62 @@ export default function NewWrite() {
             </label>
           ))
         );
+      })
+      .catch(() => {
+        activatePopup(['error', 'An error occurred.', 'okay']);
       });
   }, []);
 
-  const checkForm = (e) => {
-    let checkBoxCounter = 0;
-    e.preventDefault();
+  const sendNewWrite = () => {
+    activatePopup(['info', 'Sending, enjoy the mayhem..', null]);
+
+    const checkedCategories = [];
 
     categories.map((category) =>
       document.querySelector(`#check${category}`).checked === true
-        ? (checkBoxCounter += 1)
+        ? checkedCategories.push(category)
         : ''
     );
 
-    if (checkBoxCounter > 0) {
-      activatePopup(['ok', 'Your write is sent sucessfully.']);
+    fetch('http://localhost:3050/newWrite', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        write: writeText,
+        categories: checkedCategories,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        data.message === 'success'
+          ? activatePopup(['ok', 'Your write sent sucessfully.', 'okay'])
+          : activatePopup(['error', 'An error occurred.', 'okay']);
+      });
+  };
+
+  const checkForm = async (e) => {
+    let checkBoxCounter = 0;
+    e.preventDefault();
+    categories === null
+      ? await activatePopup(['error', 'An error occurred.', 'okay'])
+      : categories.map((category) =>
+          document.querySelector(`#check${category}`).checked === true
+            ? (checkBoxCounter += 1)
+            : ''
+        );
+
+    if (checkBoxCounter > 0 && checkBoxCounter < 4) {
+      sendNewWrite();
+    } else if (checkBoxCounter > 3) {
+      activatePopup(['error', 'You can choose up to 3 categories.', 'okay']);
     } else {
-      activatePopup(['error', 'You have to select a category at least.']);
+      activatePopup([
+        'error',
+        'You have to select a category at least.',
+        'okay',
+      ]);
     }
   };
 
@@ -82,8 +121,10 @@ export default function NewWrite() {
                 Content of your write.
               </div>
               <textarea
+                value={writeText}
                 id="#write-content"
                 onChange={(e) => {
+                  setWriteText(e.target.value);
                   e.target.value.length > 0
                     ? (document.querySelector('.submit-btn').disabled = false)
                     : (document.querySelector('.submit-btn').disabled = true);
