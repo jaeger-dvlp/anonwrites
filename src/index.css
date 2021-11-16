@@ -37,7 +37,7 @@ button:disabled:hover {
   animation-iteration-count: infinite;
 }
 
-@keyframes header_anim {
+@-webkit-keyframes header_anim {
   0% {
     opacity: 0;
   }
