@@ -32,9 +32,28 @@ button:disabled:hover {
 
 .header-anim {
   animation-name: header_anim;
+  -webkit-animation: header_anim;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+@keyframes header_anim {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 100%;
+  }
+
+  60% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes header_anim {
