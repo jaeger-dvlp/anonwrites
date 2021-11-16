@@ -32,7 +32,7 @@ button:disabled:hover {
 
 .header-anim {
   animation-name: header_anim;
-  -webkit-animation: header_anim;
+  -webkit-animation-name: header_anim;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
