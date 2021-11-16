@@ -10,5 +10,5 @@
 - [x] Create new write func.
 - [x] API deployment to Heroku.
 - [ ] Create landing section.
-- [ ] Create 404 page.
+- [x] Create 404 page.
 - [ ] ...
