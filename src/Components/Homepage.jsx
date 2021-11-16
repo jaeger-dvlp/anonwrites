@@ -14,11 +14,7 @@ export default function Homepage() {
     ? writeData.map((elm) => (
         <Write
           key={faker.datatype.uuid()}
-          author={
-            faker.animal.type() +
-            faker.name.firstName() +
-            faker.datatype.number(120)
-          }
+          author={elm.writeAuthor}
           content={elm.writeContent}
           time={elm.writeTime}
           categories={elm.writeCategories}
