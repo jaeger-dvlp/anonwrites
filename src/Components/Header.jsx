@@ -10,7 +10,12 @@ export default function Header() {
     >
       <a href="/">
         AnonWrites
-        <span className="header-anim">_</span>
+        <span
+          className="header-anim animate-pulse"
+          style={{ animationDuration: '0.7s' }}
+        >
+          _
+        </span>
       </a>
     </div>
   );
