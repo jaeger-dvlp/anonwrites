@@ -2,14 +2,16 @@
 import React, { useEffect, useState } from 'react';
 
 export default function ScrollUpButton() {
-  const [buttonStatus, setButtonStatus] = useState('opacity-100 bottom-30');
+  const [buttonStatus, setButtonStatus] = useState(
+    'opacity-0 invisible bottom-10'
+  );
 
   useEffect(() => {
     window.onscroll = () => {
       if (window.scrollY > 200) {
-        setButtonStatus('opacity-100 bottom-32');
+        setButtonStatus('opacity-100 visible bottom-32');
       } else {
-        setButtonStatus('opacity-0 bottom-10');
+        setButtonStatus('opacity-0 invisible bottom-10');
       }
     };
   });
