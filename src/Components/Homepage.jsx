@@ -12,15 +12,13 @@ export default function Homepage() {
 
   const writeElms = writeData
     ? writeData.map((elm) => (
-        <>
-          <Write
-            key={faker.datatype.uuid()}
-            author={elm.writeAuthor}
-            content={elm.writeContent}
-            time={elm.writeTime}
-            categories={elm.writeCategories}
-          />
-        </>
+        <Write
+          key={faker.datatype.uuid()}
+          author={elm.writeAuthor}
+          content={elm.writeContent}
+          time={elm.writeTime}
+          categories={elm.writeCategories}
+        />
       ))
     : '';
 
@@ -43,7 +41,7 @@ export default function Homepage() {
                 </div>
               </div>
             </div>
-            {[writeElms]}
+            [writeElms]
           </>
         ) : (
           <LoadingWrite />
