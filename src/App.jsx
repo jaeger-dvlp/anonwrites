@@ -15,6 +15,7 @@ import CategoryWrite from './Components/CategoryWrite';
 import NewWrite from './Components/NewWrite';
 import NotFound from './Components/NotFound';
 import Popup from './Components/Popup';
+import ScrollUpButton from './Components/ScrollUpButton';
 
 const history = createBrowserHistory();
 
@@ -39,6 +40,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
         <AddWriteButton />
+        <ScrollUpButton />
       </Router>
       <Popup />
     </ContextProvider>
