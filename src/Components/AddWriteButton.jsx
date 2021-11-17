@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function AddWriteButton() {
   return (
-    <div className="container fixed mx-auto">
+    <div className="container z-10 fixed mx-auto">
       <Link
         to="/new"
         className="addWriteButton fixed right-10 bottom-10 flex flex-wrap  justify-center content-center p-5 fill-current text-center  border border-gray-900 rounded-full text-4xl shadow-xl bg-gray-800 transition-all duration-200 transform hover:-translate-y-2 hover:text-gray-300 text-gray-500"
