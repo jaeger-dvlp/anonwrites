@@ -31,8 +31,8 @@ button:disabled:hover {
 }
 
 .header-anim {
-  animation: headerAnim 1s cubic-bezier(0.42, 0, 1, 1) infinite forwards;
-  -webkit-animation: headerAnim 1s cubic-bezier(0.42, 0, 1, 1) infinite forwards;
+  animation: headerAnim 1s cubic-bezier(0.42, 0, 1, 1) infinite forwards !important;
+  -webkit-animation: headerAnim 1s cubic-bezier(0.42, 0, 1, 1) infinite forwards !important;
 }
 
 @keyframes headerAnim {
