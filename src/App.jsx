@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import faker from 'faker';
-// eslint-disable-next-line import/named
 import { ContextProvider } from './Context';
 import Header from './Components/Header';
 import Homepage from './Components/Homepage';
