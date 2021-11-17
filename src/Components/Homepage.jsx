@@ -41,7 +41,7 @@ export default function Homepage() {
                 </div>
               </div>
             </div>
-            [writeElms]
+            {[writeElms]}
           </>
         ) : (
           <LoadingWrite />
