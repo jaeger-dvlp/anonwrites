@@ -11,4 +11,5 @@
 - [x] API deployment to Heroku.
 - [x] Create landing section.
 - [x] Create 404 page.
+- [ ] Add UUID to writes.
 - [ ] ...
