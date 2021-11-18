@@ -63,7 +63,9 @@ export default function NewWrite() {
       .then((resData) =>
         activatePopup([
           'ok',
-          `Write sent sucessfully.\nYour nickname is for this write;\n${resData.randomNick}`,
+          `Write sent sucessfully.${(<br />)}Your nickname for this write is${(
+            <br />
+          )}${resData.randomNick}`,
           'okay',
         ])
       )
