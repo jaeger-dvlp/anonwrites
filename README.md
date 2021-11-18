@@ -9,6 +9,6 @@
 - [x] Filter categories.
 - [x] Create new write func.
 - [x] API deployment to Heroku.
-- [ ] Create landing section.
+- [x] Create landing section.
 - [x] Create 404 page.
 - [ ] ...
