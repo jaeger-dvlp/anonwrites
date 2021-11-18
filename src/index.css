@@ -5,6 +5,8 @@
 @tailwind utilities;
 body,
 html {
+  min-height: 120vh;
+  background-color: rgb(17, 24, 39);
 }
 * {
   margin: 0;
