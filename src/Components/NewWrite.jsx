@@ -2,7 +2,6 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState, useContext } from 'react';
-import faker from 'faker';
 import Context from '../Context';
 
 export default function NewWrite() {
@@ -56,16 +55,18 @@ export default function NewWrite() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        writeAuthor:
-          faker.animal.type() +
-          faker.name.firstName() +
-          faker.datatype.number(120),
         write: writeText,
         categories: checkedCategories,
       }),
     })
       .then((res) => res.json())
-      .then(() => activatePopup(['ok', 'Write sent sucessfully.', 'okay']))
+      .then((resData) =>
+        activatePopup([
+          'ok',
+          `Write sent sucessfully.\nYour nickname is for this write;\n${resData.randomNick}`,
+          'okay',
+        ])
+      )
       .catch(() => activatePopup(['error', 'An error occurred.', 'okay']));
   };
 
