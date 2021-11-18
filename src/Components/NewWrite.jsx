@@ -65,11 +65,8 @@ export default function NewWrite() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        data.message === 'success'
-          ? activatePopup(['ok', 'Write sent sucessfully.', 'okay'])
-          : activatePopup(['error', 'An error occurred.', 'okay']);
-      });
+      .then(() => activatePopup(['ok', 'Write sent sucessfully.', 'okay']))
+      .catch(() => activatePopup(['error', 'An error occurred.', 'okay']));
   };
 
   const checkForm = async (e) => {
