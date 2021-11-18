@@ -63,7 +63,7 @@ export default function Popup() {
                 ? infoIcon
                 : ''}
             </div>
-            <div className="w-full whitespace-pre text-center flex flex-wrap justify-center content-center p-5">
+            <div className="w-full whitespace-pre font-light text-center flex flex-wrap justify-center content-center p-5">
               {popUp.content}
             </div>
             <div className="w-full flex flex-wrap justify-center content-center p-5">
