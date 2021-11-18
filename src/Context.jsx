@@ -47,9 +47,7 @@ export const ContextProvider = ({ children }) => {
       method: 'GET',
     })
       .then((res) => res.json())
-      .then((resData) => {
-        setWriteData(resData);
-      })
+      .then((resData) => setWriteData(resData))
       .catch((err) => {
         activatePopup(['error', 'An error occurred.', 'okay']);
         setTimeout(() => {
