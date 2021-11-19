@@ -27,11 +27,10 @@ export default function Write(props) {
                   key={`${author}NickTag`}
                   className="text-blue-400 cursor-pointer hover:text-blue-500"
                 >
-                  {' '}
-                  {elm}
+                  {elm}{' '}
                 </span>
               ) : (
-                ` ${elm}`
+                `${elm} `
               )
             )}
           </div>
