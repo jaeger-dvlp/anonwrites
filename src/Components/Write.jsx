@@ -20,7 +20,7 @@ export default function Write(props) {
           <div className="write-header text-gray-300 w-full text-lg border-b transition-all duration-300 border-gray-900 p-5">
             {author}
           </div>
-          <div className="write-content break-words whitespace-pre text-gray-300 text-md w-full font-light transition-all duration-300 p-5">
+          <div className="write-content break-normal whitespace-pre text-gray-300 text-md w-full font-light transition-all duration-300 p-5">
             {content.split(' ').map((elm) =>
               elm[0] === '@' ? (
                 <span
