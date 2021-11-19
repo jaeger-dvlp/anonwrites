@@ -1,3 +1,5 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -5,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function Write(props) {
   const { author, content, time, categories } = props;
+
   return (
     <div className="w-full font-pop transition-all duration-300 justify-center flex flex-wrap">
       <div
@@ -18,7 +21,19 @@ export default function Write(props) {
             {author}
           </div>
           <div className="write-content text-gray-300 text-md w-full font-light transition-all duration-300 p-5">
-            {content}
+            {content.split(' ').map((elm) =>
+              elm[0] === '@' ? (
+                <span
+                  key={`${author}NickTag`}
+                  className="text-blue-400 cursor-pointer hover:text-blue-500"
+                >
+                  {' '}
+                  {elm}
+                </span>
+              ) : (
+                ` ${elm}`
+              )
+            )}
           </div>
           <div className="write-footer text-gray-500 flex flex-wrap transition-all duration-300 w-full border-t border-gray-900 p-0">
             <div className="write-categories  flex flex-wrap w-full p-0">
