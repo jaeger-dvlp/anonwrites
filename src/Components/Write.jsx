@@ -3,6 +3,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import faker from 'faker';
 import { Link } from 'react-router-dom';
 
 export default function Write(props) {
@@ -21,10 +22,13 @@ export default function Write(props) {
             {author}
           </div>
           <div className="write-content whitespace-pre-wrap text-gray-300 text-md w-full font-light transition-all duration-300 p-5">
-            {content.split(' ').map((elm) =>
+            {content.split(' ').map((elm, i) =>
               elm[0] === '@' ? (
                 <span
-                  key={`${author}NickTag`}
+                  key={`${author}NickTag${elm.toString()}${faker.datatype.number(
+                    i,
+                    i * 50
+                  )}`}
                   className="text-blue-400 cursor-pointer hover:text-blue-500"
                 >
                   {elm}{' '}
@@ -35,10 +39,10 @@ export default function Write(props) {
             )}
           </div>
           <div className="write-footer text-gray-500 flex flex-wrap transition-all duration-300 w-full border-t border-gray-900 p-0">
-            <div className="write-categories  flex flex-wrap w-full p-0">
+            <div className="write-categories justify-start content-center  flex flex-wrap w-full p-0 pt-6 pr-5">
               {categories.map((category) => (
                 <div
-                  className="p-5 pb-6 pr-0"
+                  className="p-5 pr-0 pt-0 pb-7"
                   key={`${category}CategoryKeyOf${author}_`}
                 >
                   <Link
